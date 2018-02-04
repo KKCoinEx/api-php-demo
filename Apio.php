@@ -27,20 +27,7 @@ class Apio extends Model
     public function balance(){
         return $this->rest(__FUNCTION__);
     }
-    // 以下尚未调试通过
-    public function order($id){
-        $payload = array('id' => (string)$id);
-        return $this->rest(__FUNCTION__,$payload);
-    }
-    public function openorders(){
-        $payload = array();
-        return $this->rest(__FUNCTION__);
-    }
-    public function trade($xx){
-        $payload = array();
-        $post_layoad = array('' => (string)$xx);
-        return $this->rest(__FUNCTION__, $payload, Apio::POST, $post_layoad);
-    }
+    // 取消委托
     public function cancel($orderid){
         $payload = array();
         $post_layoad = array('orderid' => (string)$orderid);
