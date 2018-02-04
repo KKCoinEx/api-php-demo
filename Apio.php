@@ -14,7 +14,7 @@ class Apio extends Model
     public function init($passphrase, $api_key, $filepath_to_private_key){
         $this->passphrase = $passphrase;
         $this->private_key_file = $filepath_to_private_key; 
-        $this->api_url = 'http://localhost:8080/api/';
+        $this->api_url = 'http://api.kkcoin.com/rest/';
         $this->header_api_key = 'kkcoinapikey: '.$api_key;
         $this->header_sign = 'kkcoinsign: ';
         $this->header_timestamp = 'kkcointimestamp: ';
