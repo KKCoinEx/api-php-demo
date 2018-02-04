@@ -17,7 +17,7 @@
     $result = $kkapi->cancel(201801280756363559);
     // 响应处理
     if ((isset($result['status_code']))){
-        dd('Ooooops! KKCOIN resopnse: '.$result['message']);
+        dd('Ooooops! KKCOIN response: '.$result['message']);
     }else{
         var_dump($result); 
     }
