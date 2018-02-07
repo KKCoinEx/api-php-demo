@@ -28,5 +28,5 @@ http://<your host>/openorders
 http://<your host>/trade
 http://<your host>/cancel
 ```
-一切顺利的话，会得到下面这样结果
+一切顺利的话，会得到下面这样结果，您可以利用这个 DEMO 来验证本地的配置和比较应用实例的变量中间状态
 ![demo](https://github.com/KKCoinEx/api-php-demo/blob/master/demo.png)
