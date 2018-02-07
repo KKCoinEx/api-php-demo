@@ -18,3 +18,13 @@ clone 本项目到本地，配置好 web 服务器即可运行
 
 ### DEMO 代码
 程序代码在 app/Http/Controllers/ApioContorller.php
+
+### 运行
+打开浏览器，输入
+```
+http://<your host>/balance
+http://<your host>/order
+http://<your host>/openorders
+http://<your host>/trade
+http://<your host>/cancel
+```
