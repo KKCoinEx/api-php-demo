@@ -29,4 +29,4 @@ http://<your host>/trade
 http://<your host>/cancel
 ```
 一切顺利的话，会得到下面这样结果
-![demo](https://github.com/KKCoinEx/api-php-demo)
+![demo](https://github.com/KKCoinEx/api-php-demo/blob/master/demo.png)
