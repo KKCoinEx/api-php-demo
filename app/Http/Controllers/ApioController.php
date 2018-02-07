@@ -47,7 +47,7 @@ class ApioController extends Controller{
         $public_key_file = 'file://'.$path.'/yourpublic.key'; 
         dump('公钥文件: '.$public_key_file);     
         $contents = File::get($path.'/yourpublic.key');
-        dump($contents);
+        print_r("<code>$contents</code>");
         $api_url = 'http://localhost:8081/api/';
         $header_api_key = 'kkcoinapikey: 1f614ce13a2bebab9c6d24ead4f5ec8f';
         $header_sign = 'kkcoinsign: ';
@@ -94,6 +94,6 @@ class ApioController extends Controller{
 
     function dump($exp)
     {
-        print "<pre>"; print_r($exp); print "</pre>"; 
+        print "<BR>"; var_dump($exp); print "<BR>"; 
     }
 }
