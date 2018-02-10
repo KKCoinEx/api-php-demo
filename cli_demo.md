@@ -20,7 +20,7 @@
 
 ### 运行
 
-```
+```php
 // 查询账户余额
 $ php kkapi.php balance
 // 查询订单状态
