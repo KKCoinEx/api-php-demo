@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
+require('customize.php');
+
 class ApioController extends Controller{
     // 获取用户账户余额
     public function balance(Request $request){
@@ -39,17 +41,17 @@ class ApioController extends Controller{
     // REST API 统一调用接口
     /////////////////////////////////////////////////////////////////////////////////////////////////
     private function rest($endpoint, $payload = array(), $get = true){
-        $passphrase = 'KKCOIN.COM';
+        $passphrase = API_KEY_PASSPHRASE;
         $path = storage_path();
-        $private_key_file = 'file://'.$path.'/yourprivate.key'; 
+        $private_key_file = 'file://'.$path.API_PRIVATE_KEY; 
         dump('私钥文件：'.$private_key_file);        
         dump('私钥口令: '.$passphrase); 
-        $public_key_file = 'file://'.$path.'/yourpublic.key'; 
+        $public_key_file = 'file://'.$path.API_PUBLIC_KEY; 
         dump('公钥文件: '.$public_key_file);     
-        $contents = File::get($path.'/yourpublic.key');
-        print_r("<code>$contents</code>");
-        $api_url = 'http://localhost:8081/api/';
-        $header_api_key = 'kkcoinapikey: 1f614ce13a2bebab9c6d24ead4f5ec8f';
+        //$contents = File::get($path.API_PUBLIC_KEY);
+        //print_r("<code>$contents</code>");
+        $api_url = API_REST_URL;
+        $header_api_key = 'kkcoinapikey: '.API_KEY;
         $header_sign = 'kkcoinsign: ';
         $header_timestamp = 'kkcointimestamp: ';
         // 签名 & 组装
@@ -68,7 +70,7 @@ class ApioController extends Controller{
         $ssl_res = openssl_sign($message, $signature_bin, $openssl_res, OPENSSL_ALGO_SHA256);
         openssl_free_key($openssl_res);
         $signature = base64_encode($signature_bin);
-        dump('Base64后的签名：'.$signature);
+        //dump('Base64后的签名：'.$signature);
         $header_array = array(
             $header_api_key,
             $header_sign.$signature,
