@@ -1,4 +1,14 @@
 <?php
+    /////////////////  CUSTOMIZE /////////////////
+    const API_PRIVATE_KEY = '/yourprivate.key';
+    const API_PUBLIC_KEY = '/yourpublic.key';
+    const API_KEY_PASSPHRASE = 'KKCOIN.COM';
+    const API_KEY = 'place your key';
+    //const API_KEY = 'place your key';
+    const API_REST_URL = 'https://api.kkcoin.com/rest/';
+    //const API_REST_URL = 'http://localhost:8081/api/';
+    ////////////////////////////////////////////////
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // 命令行入口
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -12,17 +22,6 @@ if (!empty($params)){
 }
 
 class ApioController {
-    /////////////////  CUSTOMIZE /////////////////
-    const API_PRIVATE_KEY = '/yourprivate.key';
-    const API_PUBLIC_KEY = '/yourpublic.key';
-    const API_KEY_PASSPHRASE = 'KKCOIN.COM';
-    const API_KEY = 'place your key';
-    //const API_KEY = 'place your key';
-    const API_REST_URL = 'https://api.kkcoin.com/rest/';
-    //const API_REST_URL = 'http://localhost:8081/api/';
-    ////////////////////////////////////////////////
-
-
     const API_HEADER_KEY  = 'kkcoinapikey: ';
     const API_HEADER_SIGN = 'kkcoinsign: ';
     const API_HEADER_TIME = 'kkcointimestamp: ';
@@ -33,8 +32,8 @@ class ApioController {
     private function rest($endpoint, $payload = array(), $get = true){
         $path = getcwd();
         $timestamp = time();
-        $private_key_file = $path.self::API_PRIVATE_KEY;  
-        $public_key_file = $path.self::API_PUBLIC_KEY;
+        $private_key_file = $path.API_PRIVATE_KEY;  
+        $public_key_file = $path.API_PUBLIC_KEY;
         ksort($payload, SORT_STRING | SORT_FLAG_CASE);
         $message = $endpoint.json_encode($payload).$timestamp;
         $method = $get?'GET':'POST';
@@ -48,25 +47,25 @@ class ApioController {
         self::dump('参数数组：'.json_encode($payload));
         self::dump('消息报文：'.$message);
 
-        $openssl_res = openssl_get_privatekey('file://'.$private_key_file, self::API_KEY_PASSPHRASE);
+        $openssl_res = openssl_get_privatekey('file://'.$private_key_file, API_KEY_PASSPHRASE);
         $ssl_res = openssl_sign($message, $signature_bin, $openssl_res, OPENSSL_ALGO_SHA256);
         openssl_free_key($openssl_res);
         $signature = base64_encode($signature_bin);
         self::dump('Base64后的签名：\n'.$signature);
         $header_array = array(
-            self::API_HEADER_KEY.self::API_KEY,
+            self::API_HEADER_KEY.API_KEY,
             self::API_HEADER_SIGN.$signature,
             self::API_HEADER_TIME.$timestamp);
         // 输出
         $http_res = curl_init();
         if ($get){
             if (empty($payload)){
-                $http_url =  self::API_REST_URL.$endpoint;
+                $http_url =  API_REST_URL.$endpoint;
             }else{
-                $http_url =  self::API_REST_URL.$endpoint.'?'.http_build_query($payload);
+                $http_url =  API_REST_URL.$endpoint.'?'.http_build_query($payload);
             }
         }else{
-            $http_url =  self::API_REST_URL.$endpoint;
+            $http_url =  API_REST_URL.$endpoint;
             curl_setopt($http_res, CURLOPT_POST, 1);
             curl_setopt($http_res, CURLOPT_POSTFIELDS, $payload);
         }
