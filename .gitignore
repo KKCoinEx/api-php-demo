@@ -1,3 +1,2 @@
-yourprivate.key
-yourpublic.key
-customize.php
+keys
+src/customize.php

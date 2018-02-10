@@ -31,8 +31,8 @@ class ApioController {
         $method = $get?'GET':'POST';
 
         //self::dump('私钥文件：'.$private_key_file);   
-        //self::dump('公钥文件: '.$public_key_file);     
-        //self::dump('私钥口令: '.self::API_KEY_PASSPHRASE);   
+        self::dump('公钥文件: '.$public_key_file);     
+        self::dump('私钥口令: '.self::API_KEY_PASSPHRASE);   
         self::dump('路由节点：'.$endpoint);
         self::dump('访问方式：'.$method);
         self::dump('时 间 戳：'.$timestamp);
@@ -62,11 +62,12 @@ class ApioController {
             curl_setopt($http_res, CURLOPT_POSTFIELDS, $payload);
         }
         self::dump('开始访问：'.$http_url);
-        //self::dump('组装好的定制HEADER数组：\n'.json_encode($header_array));
+        self::dump('组装好的定制HEADER数组：\n'.json_encode($header_array));
         curl_setopt($http_res, CURLOPT_URL, $http_url); 
         curl_setopt($http_res, CURLOPT_RETURNTRANSFER, 1); 
         curl_setopt($http_res, CURLOPT_HTTPHEADER, $header_array);
         $response = curl_exec($http_res);
+        //var_dump($response);
         curl_close($http_res);
         echo "服务器返回：\n";
         return $response;
@@ -84,18 +85,20 @@ class ApioController {
     // 获取用户账户余额
     public function balance(){
         $response = self::rest(__FUNCTION__);
-        var_dump($response);
+        //var_dump($response);
         $arr = json_decode($response,true);
         if (is_null($arr)){
-            print_r($response);
+            self::dump($response);
         }else{
-            $bal = array();
-            foreach ($arr as $key => $value) {
-                if (intval($value['bal']) > 0){
-                    $bal[] = $value;
+            if (isset($arr['bal'])){
+                $bal = array();
+                foreach ($arr as $key => $value) {
+                    if (intval($value['bal']) > 0){
+                        $bal[] = $value;
+                    }
                 }
             }
-            var_dump($bal);            
+            var_dump($arr);       
         }
     }
     public function order($params = array('20180207000000000147')){
@@ -104,7 +107,7 @@ class ApioController {
         $arr = json_decode($response,true);
         var_dump($arr);
     }
-    public function openorders($params = array("EOS_ETH")){
+    public function openorders($params = array("KK_ETH")){
         $payload = array('symbol' => $params[0]);
         $response = self::rest(__FUNCTION__,$payload);
         $arr = json_decode($response,true);
