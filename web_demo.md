@@ -6,10 +6,11 @@
 - Laravel 5.5 以上
 
 ### 下载文件
-ApioController.php, web.php
+- [ApioController.php](https://github.com/KKCoinEx/api-php-demo/blob/master/ApioController.php)
+- [web.php](https://github.com/KKCoinEx/api-php-demo/blob/master/web.php)
 
 ### 生成本地密钥对
-程序要求在可访问的目录下存放私钥及公钥文件，因为安全需要，这两个文件已经被我们删除，请自行根据[生成密钥](https://github.com/KKCoinEx/api-wiki/wiki/RESTful-Auth-D1.-generate-key-pair)生成您自己的密钥，并在 ApioControllers.php 程序中修改下面的值
+程序要求在可访问的目录下存放私钥及公钥文件，因为安全需要，这两个文件未上传至 GitHub，请自行根据[生成密钥](https://github.com/KKCoinEx/api-wiki/wiki/RESTful-Auth-D1.-generate-key-pair)生成密钥，并在 ApioControllers.php 程序中修改下面的值
 
 ```php
     const API_PRIVATE_KEY = '/yourprivate.key'; // 公钥文件的位置
