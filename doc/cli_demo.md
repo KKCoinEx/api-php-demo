@@ -6,8 +6,8 @@
 
 ### 下载文件
 
-- [kkapi.php](https://github.com/KKCoinEx/api-php-demo/blob/master/kkapi.php)
-- [customize.example.php](https://github.com/KKCoinEx/api-php-demo/blob/master/customize.example.php), 改名为 customize.php
+- [kkapi.php](https://raw.githubusercontent.com/KKCoinEx/api-php-demo/master/kkapi.php)
+- [customize.example.php](https://raw.githubusercontent.com/KKCoinEx/api-php-demo/master/customize.example.php), 改名为 customize.php
 
 ### 生成本地密钥对
 程序要求在可访问的目录下存放私钥及公钥文件，因为安全需要，这两个文件未上传至 GitHub，请自行根据[生成密钥](https://github.com/KKCoinEx/api-wiki/wiki/Auth-D1.-generate-key-pair)生成密钥，并在 customize.php 程序中修改下面的值
@@ -24,11 +24,11 @@
 // 查询账户余额
 $ php kkapi.php balance
 // 查询订单状态
-$ php kkapi.php order
+$ php kkapi.php order 12345678
 // 查询有效委托
 $ php kkapi.php openorders  
 // 委托下单
-$ php kkapi.php trade
+$ php kkapi.php trade KK_ETH LIMIT BUY 0.000001 1000
 // 取消委托
-$ php kkapi.php cancel  
+$ php kkapi.php cancel 12345678
 ```
