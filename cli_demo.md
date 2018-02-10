@@ -28,7 +28,7 @@ $ php kkapi.php order 12345678
 // 查询有效委托
 $ php kkapi.php openorders  
 // 委托下单
-$ php kkapi.php trade KK_ETH LIMIT BUY 0.01 1000
+$ php kkapi.php trade KK_ETH LIMIT BUY 0.000001 1000
 // 取消委托
 $ php kkapi.php cancel 12345678
 ```
