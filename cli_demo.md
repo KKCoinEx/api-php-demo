@@ -21,9 +21,14 @@
 ### 运行
 
 ```
+// 查询账户余额
 $ php kkapi.php balance
-$ php kkapi.php order  
-$ php kkapi.php openorders  
-$ php kkapi.php trade  
-$ php kkapi.php cancel  
+// 查询订单状态
+$ php kkapi.php order
+// 查询有效委托
+$ php kkapi.php openorders  
+// 委托下单
+$ php kkapi.php trade
+// 取消委托
+$ php kkapi.php cancel  
 ```
