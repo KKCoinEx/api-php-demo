@@ -22,22 +22,22 @@
 ### 生成 Laravel 工程
 1. 复制 web.php 到 route 目录
 2. 复制 ApioController.php 到 app/Htttp/Controllers
+3. 复制 customize.example.php 到 app/Htttp/Controllers/customize.php
 
 ### 配置 Web 服务器指向工程文件 public 目录
 
 ### 运行
-打开浏览器，输入
+打开浏览器，输入以下指令，能得到程序内设置的默认参数的输出，也可以根据需要修改参数
 ```
-// 查询账户余额
-http://<your host>/balance
-// 查询订单状态
-http://<your host>/order
-// 查询有效委托
-http://<your host>/openorders
-// 委托下单
-http://<your host>/trade
-// 取消委托
-http://<your host>/cancel
+http://<your host>/balance // 查询账户余额
+
+http://<your host>/order // 查询订单状态
+
+http://<your host>/openorders // 查询有效委托
+
+http://<your host>/trade // 委托下单
+
+http://<your host>/cancel // 取消委托
 ```
-一切顺利的话会得到类似下图的返回结果，您可以利用这个 DEMO 来验证配置和应用，GOOD LUCK！
+一切顺利的话会得到类似下图的返回结果，欢迎利用这个 DEMO 来验证配置和应用，GOOD LUCK！
 ![demo](https://github.com/KKCoinEx/api-php-demo/blob/master/chart/demo.png)
