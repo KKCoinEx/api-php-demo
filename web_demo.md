@@ -37,7 +37,6 @@ http://<your host>/openorders
 http://<your host>/trade
 // 取消委托
 http://<your host>/cancel
-```php
-
+```
 一切顺利的话会得到类似下图的返回结果，您可以利用这个 DEMO 来验证配置和应用，GOOD LUCK！
 ![demo](https://github.com/KKCoinEx/api-php-demo/blob/master/demo.png)
