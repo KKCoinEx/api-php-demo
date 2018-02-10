@@ -44,8 +44,8 @@ http://<your host>/cancel
 程序代码在 Apio.php
 
 ### 运行
-$ php Apio.php balance
-$ php Apio.php order
-$ php Apio.php openorders
-$ php Apio.php trade
-$ php Apio.php cancel
+$ php Apio.php balance  
+$ php Apio.php order  
+$ php Apio.php openorders  
+$ php Apio.php trade  
+$ php Apio.php cancel  
