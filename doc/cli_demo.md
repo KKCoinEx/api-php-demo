@@ -21,14 +21,14 @@
 ### 运行
 
 ```php
-// 查询账户余额
+查询账户余额
 $ php kkapi.php balance
-// 查询订单状态
+查询订单状态
 $ php kkapi.php order 12345678
-// 查询有效委托
+查询有效委托
 $ php kkapi.php openorders  
-// 委托下单
+委托下单
 $ php kkapi.php trade KK_ETH LIMIT BUY 0.000001 1000
-// 取消委托
+取消委托
 $ php kkapi.php cancel 12345678
 ```
